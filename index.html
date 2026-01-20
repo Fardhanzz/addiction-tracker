@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddictionTracker - Break Free, Reclaim Your Space</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%236C63FF%22>🚀</text></svg>">
+</head>
+<body class="dark-theme">
+    <!-- Stars Background Elements -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="shooting-stars"></div>
+    
+    <!-- Sun Element for Light Mode -->
+    <div class="sun"></div>
+    <div class="clouds"></div>
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen active">
+        <div class="login-container">
+            <div class="logo-header">
+                <div class="logo">
+                    <div class="planet-icon">
+                        <div class="planet-core"></div>
+                        <div class="planet-ring"></div>
+                    </div>
+                    <h1>Addiction<span>Tracker</span></h1>
+                </div>
+                <p class="tagline">Break Free, Reclaim Your Space</p>
+            </div>
+            
+            <div class="login-card cosmic-card">
+                <h2>Begin Your Journey</h2>
+                <p class="login-subtitle">Track progress and conquer your addiction</p>
+                
+                <div class="login-form">
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="email" placeholder="your@email.com" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="addictionType"><i class="fas fa-crosshairs"></i> Addiction Type</label>
+                        <div class="custom-select-wrapper">
+                            <select id="addictionType" class="form-select">
+                                <option value="">Select addiction type</option>
+                                <option value="smoking">Smoking/Tobacco</option>
+                                <option value="alcohol">Alcohol</option>
+                                <option value="gadget">Gadget/Social Media</option>
+                                <option value="gambling">Gambling</option>
+                                <option value="junkfood">Junk Food</option>
+                                <option value="gaming">Excessive Gaming</option>
+                                <option value="gaming">Porn, Masturbation & Orgasm</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="custom-arrow">▼</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notificationTime"><i class="fas fa-bell"></i> Daily Reminder Time</label>
+                        <div class="custom-select-wrapper">
+                            <select id="notificationTime" class="form-select">
+                                <option value="09:00">9:00 AM</option>
+                                <option value="12:00" selected>12:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                                <option value="21:00">9:00 PM</option>
+                                <option value="custom">Custom Time</option>
+                            </select>
+                            <div class="custom-arrow">▼</div>
+                        </div>
+                        <div id="customTimeContainer" style="display: none; margin-top: 10px;">
+                            <input type="time" id="customTime" class="form-input">
+                        </div>
+                    </div>
+                    
+                    <button id="loginBtn" class="btn-primary cosmic-btn">
+                        <i class="fas fa-rocket"></i> Launch Tracker
+                    </button>
+                    
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+                    
+                    <button id="googleLogin" class="btn-google">
+                        <i class="fab fa-google"></i> Continue with Google
+                    </button>
+                    
+                    <p class="disclaimer">By continuing, you agree to our <a href="#">Terms & Conditions</a></p>
+                </div>
+            </div>
+            
+            <div class="login-footer">
+                <p><i class="fas fa-satellite"></i> Every small step is a giant leap toward freedom</p>
+            </div>
+
+            <!-- Theme Toggle in Login -->
+            <button id="themeToggleLogin" class="theme-toggle-btn">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="screen">
+        <!-- Header -->
+        <header class="cosmic-header">
+            <div class="header-left">
+                <div class="logo">
+                    <div class="planet-icon">
+                        <div class="planet-core"></div>
+                        <div class="planet-ring"></div>
+                    </div>
+                    <h1>Addiction<span>Tracker</span></h1>
+                </div>
+            </div>
+            <div class="header-right">
+                <button id="themeToggle" class="theme-toggle-btn">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-info">
+                    <span id="userEmail">user@email.com</span>
+                    <div class="user-avatar cosmic-avatar">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                </div>
+                <button id="logoutBtn" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero cosmic-hero">
+                <div class="hero-content">
+                    <h2 id="greeting">Good Morning, Space Warrior!</h2>
+                    <p id="addictionInfo">You're battling <span id="userAddiction">Addiction</span></p>
+                    <div class="next-notification">
+                        <i class="fas fa-clock"></i>
+                        Next check-in: <span id="nextCheckTime">12:00 PM</span>
+                    </div>
+                </div>
+                <div class="motivation-bubble cosmic-bubble">
+                    <p id="motivationText">Every addiction-free day is a victory!</p>
+                </div>
+                <div class="floating-astronaut">
+                    <i class="fas fa-user-astronaut"></i>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <h3><i class="fas fa-chart-line"></i> Your Space Mission Progress</h3>
+                
+                <!-- Progress Circle -->
+                <div class="progress-container cosmic-card">
+                    <div class="progress-circle">
+                        <svg width="200" height="200" viewBox="0 0 200 200">
+                            <circle cx="100" cy="100" r="90" fill="none" class="progress-bg"></circle>
+                            <circle id="progressCircle" cx="100" cy="100" r="90" fill="none" class="progress-fill" stroke-linecap="round" transform="rotate(-90 100 100)" stroke-dasharray="565.48" stroke-dashoffset="565.48"></circle>
+                        </svg>
+                        <div class="progress-text">
+                            <span id="progressPercent">0%</span>
+                            <small>Freedom Level</small>
+                        </div>
+                        <div class="progress-orbit"></div>
+                    </div>
+                    
+                    <div class="progress-message">
+                        <h4 id="progressMessage">Ready for Launch!</h4>
+                        <p id="progressSubMessage">Your journey begins today!</p>
+                        <div class="mission-control">
+                            <button id="resetProgressBtn" class="btn-reset">
+                                <i class="fas fa-redo"></i> Reset Mission
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card cosmic-card win-streak">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Win Streak</h4>
+                            <p id="winStreak">0 days</p>
+                            <div class="streak-fire"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card cosmic-card total-days">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Mission Days</h4>
+                            <p id="totalDays">0 days</p>
+                            <div class="earth-rotation"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card cosmic-card relapse-count">
+                        <div class="stat-icon">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Relapses</h4>
+                            <p id="relapseCount">0 times</p>
+                            <div class="signal-wave"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card cosmic-card success-rate">
+                        <div class="stat-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Success Rate</h4>
+                            <p id="successRate">0%</p>
+                            <div class="rocket-trail"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Daily Check Section -->
+            <section class="daily-check-section cosmic-card">
+                <h3><i class="fas fa-sun"></i> Today's Check-In</h3>
+                <p>Did you successfully avoid your addiction today?</p>
+                
+                <div class="check-buttons">
+                    <button id="yesBtn" class="btn-yes cosmic-btn">
+                        <i class="fas fa-check-circle"></i> YES! Victory Achieved!
+                    </button>
+                    <button id="noBtn" class="btn-no cosmic-btn">
+                        <i class="fas fa-times-circle"></i> No, I Relapsed
+                    </button>
+                </div>
+                
+                <div class="check-status">
+                    <p>Today's status: <span id="todayStatus" class="status-pending">Pending Check-In</span></p>
+                    <p>Last check: <span id="lastCheck">Never</span></p>
+                </div>
+
+                <div class="notification-settings">
+                    <h4><i class="fas fa-bell"></i> Daily Reminder Settings</h4>
+                    <div class="settings-row">
+                        <label for="updateNotificationTime">Change reminder time:</label>
+                        <div class="custom-select-wrapper small">
+                            <select id="updateNotificationTime" class="form-select">
+                                <option value="09:00">9:00 AM</option>
+                                <option value="12:00" selected>12:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                                <option value="21:00">9:00 PM</option>
+                                <option value="custom">Custom Time</option>
+                            </select>
+                            <div class="custom-arrow">▼</div>
+                        </div>
+                    </div>
+                    <div id="updateCustomTimeContainer" style="display: none; margin-top: 10px;">
+                        <input type="time" id="updateCustomTime" class="form-input">
+                    </div>
+                    <button id="updateNotificationBtn" class="btn-settings cosmic-btn">
+                        <i class="fas fa-save"></i> Save Settings
+                    </button>
+                </div>
+            </section>
+
+            <!-- Calendar Section -->
+            <section class="calendar-section cosmic-card">
+                <h3><i class="fas fa-calendar-star"></i> Mission Calendar</h3>
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <button id="prevMonth" class="cosmic-btn-icon"><i class="fas fa-chevron-left"></i></button>
+                        <h4 id="currentMonth">September 2023</h4>
+                        <button id="nextMonth" class="cosmic-btn-icon"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- Calendar akan diisi oleh JavaScript -->
+                    </div>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <span class="legend-color success"></span>
+                            <span>Victory Day</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color relapse"></span>
+                            <span>Relapse Day</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color today"></span>
+                            <span>Today</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color future"></span>
+                            <span>Future</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Motivation Section -->
+            <section class="motivation-section">
+                <h3><i class="fas fa-satellite"></i> Mission Control Messages</h3>
+                <div class="motivation-cards">
+                    <div class="motivation-card cosmic-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>You're stronger than you think. Every day is proof of that.</p>
+                        <div class="message-source">- Mission Control</div>
+                    </div>
+                    <div class="motivation-card cosmic-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>The greatest victory is mastering yourself.</p>
+                        <div class="message-source">- Space Command</div>
+                    </div>
+                    <div class="motivation-card cosmic-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Small steps today are giant leaps for your future.</p>
+                        <div class="message-source">- Recovery Station</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Daily Notification Modal -->
+        <div id="notificationModal" class="modal">
+            <div class="modal-content cosmic-card">
+                <div class="modal-header cosmic-modal-header">
+                    <div class="modal-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Daily Check-In Time!</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Hello Space Warrior! It's time for your daily addiction check-in.</p>
+                    <p class="modal-question">Did you avoid your addiction today?</p>
+                    <div class="modal-buttons">
+                        <button id="modalYesBtn" class="btn-yes cosmic-btn">
+                            <i class="fas fa-check"></i> Yes, I'm Clean!
+                        </button>
+                        <button id="modalNoBtn" class="btn-no cosmic-btn">
+                            <i class="fas fa-times"></i> No, I Relapsed
+                        </button>
+                    </div>
+                    <p class="modal-note">This check-in can only be done once per day</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="snoozeModal" class="btn-snooze">
+                        <i class="fas fa-clock"></i> Remind me in 1 hour
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reset Confirmation Modal -->
+        <div id="resetModal" class="modal">
+            <div class="modal-content cosmic-card">
+                <div class="modal-header warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Reset Mission Progress</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to reset all your progress?</p>
+                    <p class="warning-text">This action cannot be undone. All your data will be lost.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirmReset" class="btn-danger cosmic-btn">Yes, Reset Everything</button>
+                    <button id="cancelReset" class="btn-secondary cosmic-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="floating-element element-1"><i class="fas fa-star"></i></div>
+    <div class="floating-element element-2"><i class="fas fa-meteor"></i></div>
+    <div class="floating-element element-3"><i class="fas fa-planet-ringed"></i></div>
+    <div class="floating-element element-4"><i class="fas fa-satellite"></i></div>
+
+    <script src="script.js"></script>
+    <script src="notification.js"></script>
+</body>
+</html>
